@@ -74,14 +74,13 @@ def registro():
 def buscar():
     if len(empleados) > 0:
         codigo = int(input("Ingrese el codigo del empleado: "))
-        for buscar in empleados:
-            if codigo in empleados:
+        if codigo in empleados:
+            for buscar in empleados:
                 print(f"Nombre: {empleados[buscar]['nombre']}")
-            else:
-                print("No hay ninun empleado con ese codigo")
+        else:
+            print("No hay ningun empleado con ese codigo")
     else:
         print("No hay empleados registrados")
-
 opciones = 0
 a = False
 while a == False:
