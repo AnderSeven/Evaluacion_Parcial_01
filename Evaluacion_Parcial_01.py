@@ -22,7 +22,8 @@ def registro():
     x = 0
     cantidad = int(input("Cuantos empleados desea registrar: "))
     for i in range(cantidad):
-        nombre = input(f"\nIngrese el nombre del empleado {x+1}: ")
+        x += 1
+        nombre = input(f"\nIngrese el nombre del empleado {x}: ")
         a = False
         while a == False:
             codigo = int(input("Ingerse el ID: "))
@@ -44,7 +45,7 @@ def registro():
         trabajo_equipo = float(input("Califique el trabajo en equipo: "))
         productividad = float(input("Califique la productividad: "))
         observacion = input("Ingrese las observaciones: ")
-        promedio = puntuabilidad + trabajo_equipo + productividad / 3
+        promedio = (puntuabilidad + trabajo_equipo + productividad) / 3
         if promedio >= 7:
             print(f"\nPromedio del empleado: {promedio}")
             print("Desempeño: Satisfactorio")
@@ -72,7 +73,12 @@ def registro():
 
 def buscar():
     if len(empleados) > 0:
-        print("asdf")
+        codigo = int(input("Ingrese el codigo del empleado: "))
+        for buscar in empleados:
+            if codigo in empleados:
+                print(f"Nombre: {empleados[buscar]['nombre']}")
+            else:
+                print("No hay ninun empleado con ese codigo")
     else:
         print("No hay empleados registrados")
 
@@ -90,7 +96,7 @@ while a == False:
         case 1:
             registro()
         case 2:
-            print("asdf")
+            buscar()
         case 3:
             print("adsf")
         case 4:
