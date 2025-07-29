@@ -39,11 +39,30 @@ def registro():
             'antiguedad': antiguedad,
             'evaluacion':{}
         }
+        a = Empleado(nombre, codigo, departamento, antiguedad)
         print("\n----Evaluacion----")
         print("Califique del 1 al 10")
-        puntuabilidad = float(input("Califique la puntuabilidad: "))
-        trabajo_equipo = float(input("Califique el trabajo en equipo: "))
-        productividad = float(input("Califique la productividad: "))
+        s = False
+        while s == False:
+            puntuabilidad = float(input("Califique la puntuabilidad: "))
+            if puntuabilidad >= 0 and puntuabilidad <= 10:
+                s = True
+            else:
+                print("Calificacion invalida")
+        s = False
+        while s == False:
+            trabajo_equipo = float(input("Califique el trabajo en equipo: "))
+            if trabajo_equipo >= 0 and trabajo_equipo <= 10:
+                s = True
+            else:
+                print("Calificacion invalida")
+        s = False
+        while s == False:
+            productividad = float(input("Califique la productividad: "))
+            if productividad >= 0 and productividad <= 10:
+                s = True
+            else:
+                print("Calificacion invalida")
         observacion = input("Ingrese las observaciones: ")
         promedio = (puntuabilidad + trabajo_equipo + productividad) / 3
         if promedio >= 7:
@@ -73,14 +92,15 @@ def registro():
 
 def buscar():
     if len(empleados) > 0:
+        print("----Buscar empleados----")
         codigo = int(input("Ingrese el codigo del empleado: "))
         if codigo in empleados:
-            for buscar in empleados:
-                print(f"Nombre: {empleados[buscar]['nombre']}")
+            print(f"Nombre: {empleados[codigo]['nombre']}, Departamento: {empleados[codigo]['departamento']}, Antiguedad: {empleados[codigo]['antiguedad']}")
         else:
             print("No hay ningun empleado con ese codigo")
     else:
         print("No hay empleados registrados")
+
 opciones = 0
 a = False
 while a == False:
