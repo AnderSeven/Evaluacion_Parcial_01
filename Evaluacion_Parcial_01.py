@@ -7,10 +7,11 @@ class Empleado:
         self.antiguedad = antiguedad
 
 class Evaluacion:
-    def __init__(self, puntualidad, trabajo_equipo, productividad):
+    def __init__(self, puntualidad, trabajo_equipo, productividad, observaciones):
         self.puntualidad = puntualidad
         self.trabajo_equipo = trabajo_equipo
         self.pruductividad = productividad
+        self.observaciones = observaciones
 
 class InformacionContacto:
     def __init__(self, telefono, correo):
@@ -25,9 +26,28 @@ def registro():
         codigo = int(input("Ingerse el codigo: "))
         departamento = input("Ingrese el departamento: ")
         antiguedad = int(input("Ingrese la antiguedad: "))
-        empleados = {
-            nombre: 'nombre'
-
+        print("\n----Evaluacion----")
+        print("Califique del 1 al 10")
+        puntuabilidad = float(input("Califique la puntuabilidad: "))
+        trabajo_equipo = float(input("Califique el trabajo en equipo: "))
+        productividad = float(input("Califique la productividad: "))
+        observacion = input("Ingrese las observaciones: ")
+        promedio = puntuabilidad + trabajo_equipo + productividad / 3
+        if promedio >= 7:
+            print(f"\nPromedio del empleado: {promedio}")
+            print("Desempeño: Satisfactorio")
+        else:
+            print(f"\nPromedio del empleado: {promedio}")
+            print("Desempeño: Debe mejorar")
+        telefono = int(input("Ingrese el numero de telefono: "))
+        correo = input("Ingrese el correo electronico: ")
+        print("\nSe ha registrado al empleado con exito")
+        empleados[codigo] = {
+            nombre: 'nombre',
+            departamento: 'departamento',
+            antiguedad: 'antiguedad',
+            evaluacion: {}
+            # 'evaluacion': {}
         }
 
 opciones = 0
@@ -42,7 +62,7 @@ while a == False:
     opciones = int(input("Elija una opcion: "))
     match opciones:
         case 1:
-            print("asdf")
+            registro()
         case 2:
             print("asdf")
         case 3:
@@ -51,5 +71,6 @@ while a == False:
             print("asdf")
         case 5:
             print("Gracias por usar el sistema")
+            a = True
         case _:
             print("Opcion invalida")
