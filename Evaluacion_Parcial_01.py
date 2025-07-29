@@ -23,7 +23,13 @@ def registro():
     cantidad = int(input("Cuantos empleados desea registrar: "))
     for i in range(cantidad):
         nombre = input(f"\nIngrese el nombre del empleado {x+1}: ")
-        codigo = int(input("Ingerse el codigo: "))
+        a = False
+        while a == False:
+            codigo = int(input("Ingerse el ID: "))
+            if codigo in empleados:
+                print("codigo invalido")
+            else:
+                a = True
         departamento = input("Ingrese el departamento: ")
         antiguedad = int(input("Ingrese la antiguedad: "))
         print("\n----Evaluacion----")
