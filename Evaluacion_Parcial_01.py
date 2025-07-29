@@ -48,12 +48,33 @@ def registro():
         if promedio >= 7:
             print(f"\nPromedio del empleado: {promedio}")
             print("Desempeño: Satisfactorio")
+            estado = "Satisfactorio"
         else:
             print(f"\nPromedio del empleado: {promedio}")
             print("Desempeño: Debe mejorar")
+            estado = "Debe mejorar"
+        empleados[codigo]['evaluacion'] = {
+            'puntuabilidad': puntuabilidad,
+            'trabajo_equipo': trabajo_equipo,
+            'productividad': productividad,
+            'observacion': observacion,
+            'promedio': promedio,
+            'estado': estado,
+            'contacto': {}
+        }
         telefono = int(input("Ingrese el numero de telefono: "))
         correo = input("Ingrese el correo electronico: ")
+        empleados[codigo]['evaluacion']['contacto'] = {
+            'telefono': telefono,
+            'correo': correo
+        }
         print("\nSe ha registrado al empleado con exito")
+
+def buscar():
+    if len(empleados) > 0:
+        print("asdf")
+    else:
+        print("No hay empleados registrados")
 
 opciones = 0
 a = False
