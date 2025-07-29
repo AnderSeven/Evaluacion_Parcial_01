@@ -32,6 +32,12 @@ def registro():
                 a = True
         departamento = input("Ingrese el departamento: ")
         antiguedad = int(input("Ingrese la antiguedad: "))
+        empleados[codigo] = {
+            'nombre': nombre,
+            'departamento': departamento,
+            'antiguedad': antiguedad,
+            'evaluacion':{}
+        }
         print("\n----Evaluacion----")
         print("Califique del 1 al 10")
         puntuabilidad = float(input("Califique la puntuabilidad: "))
@@ -48,13 +54,6 @@ def registro():
         telefono = int(input("Ingrese el numero de telefono: "))
         correo = input("Ingrese el correo electronico: ")
         print("\nSe ha registrado al empleado con exito")
-        empleados[codigo] = {
-            nombre: 'nombre',
-            departamento: 'departamento',
-            antiguedad: 'antiguedad',
-            evaluacion: {}
-            # 'evaluacion': {}
-        }
 
 opciones = 0
 a = False
