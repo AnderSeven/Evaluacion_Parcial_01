@@ -17,6 +17,19 @@ class InformacionContacto:
         self.telefono = telefono
         self.correo = correo
 
+def registro():
+    x = 0
+    cantidad = int(input("Cuantos empleados desea registrar: "))
+    for i in range(cantidad):
+        nombre = input(f"\nIngrese el nombre del empleado {x+1}: ")
+        codigo = int(input("Ingerse el codigo: "))
+        departamento = input("Ingrese el departamento: ")
+        antiguedad = int(input("Ingrese la antiguedad: "))
+        empleados = {
+            nombre: 'nombre'
+
+        }
+
 opciones = 0
 a = False
 while a == False:
